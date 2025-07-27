@@ -58,21 +58,25 @@ if (tasksList.children.length > 1 ){
 }
 
 function deleteTask (event){
-  
-    //Проверяем что клик был по кнопку удалить 
-    if (event.target.dataset.action === 'delete'){
+
+  //Проверяем если клик был НЕ по кнопке "удалить"
+  if (event.target.dataset.action !== 'delete'){
+    return //завершение работы  
+  }
+
+    //Проверяем что клик был по кнопку "удалить" 
+
          //находим родительскую ноду 
         const parenNode = event.target.closest('.list-group-item');
 
         // Удаление задачи 
         parenNode.remove()
-    }
 
-    //Если в списке задач однин элемент то показываем надпись "Список дел пуст"
+        //Если в списке задач однин элемент то показываем надпись "Список дел пуст"
     if (tasksList.children.length === 1 ){
-    emptyList.classList.remove('none')
-    };
-
+        emptyList.classList.remove('none')
+        };
+  
 }
 
 function doneTask( event){
@@ -82,6 +86,6 @@ function doneTask( event){
         //Находим тег <span> по его классу 
         const taskTitle = parentNode.querySelector('.task-title');
         //Отчемчаем задачу выполненной или не выполненой 
-        taskTitle.classList.add('task-title--done')
+        taskTitle.classList.toggle('task-title--done')
     }
 }
