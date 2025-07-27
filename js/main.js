@@ -43,9 +43,11 @@ tasksList.insertAdjacentHTML('beforeend', taskHTML);
 taskInput.value = ""
 //возвращаем на него фокус
 taskInput.focus()
+
 //Если в списке задач больше одного элемента то скрывается надпись "Список дел пуст"
 if (tasksList.children.length > 1 ){
-    emptyList.classList.add('none')};
+    emptyList.classList.add('none')
+};
 
 }
 
@@ -57,4 +59,5 @@ function deleteTask (event){
         // Удаление задчи 
         parenNode.remove()
     }
+
 }
