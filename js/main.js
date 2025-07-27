@@ -12,6 +12,9 @@ tasksList.addEventListener('click', deleteTask);
 
 //Отмечаем задачу завершенной 
 tasksList.addEventListener('click', doneTask);
+
+
+
 //Функции 
 function addTask( event){
 
@@ -41,10 +44,11 @@ const taskHTML = `
 tasksList.insertAdjacentHTML('beforeend', taskHTML);
 
 //Очищаем поле ввода и возвращаем на него фокус
-//Очистили 
-taskInput.value = ""
-//возвращаем на него фокус
-taskInput.focus()
+
+    //Очистили 
+    taskInput.value = ""
+    //возвращаем на него фокус
+    taskInput.focus()
 
 //Если в списке задач больше одного элемента то скрывается надпись "Список дел пуст"
 if (tasksList.children.length > 1 ){
@@ -57,18 +61,23 @@ function deleteTask (event){
   
     //Проверяем что клик был по кнопку удалить 
     if (event.target.dataset.action === 'delete'){
+         //находим родительскую ноду 
         const parenNode = event.target.closest('.list-group-item');
-        // Удаление задчи 
+
+        // Удаление задачи 
         parenNode.remove()
     }
+
     //Если в списке задач однин элемент то показываем надпись "Список дел пуст"
     if (tasksList.children.length === 1 ){
     emptyList.classList.remove('none')
     };
+
 }
 
 function doneTask( event){
     if(event.target.dataset.done === "done"){
-        const parenNod = event.target.closet
+        //находим родительскую ноду 
+        const parentNode = event.target.closet('list-group-item')
     }
 }
