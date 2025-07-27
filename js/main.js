@@ -10,6 +10,8 @@ form.addEventListener('submit', addTask);
 //Удаление задачи 
 tasksList.addEventListener('click', deleteTask);
 
+//Отмечаем задачу завершенной 
+tasksList.addEventListener('click', doneTask);
 //Функции 
 function addTask( event){
 
@@ -63,4 +65,10 @@ function deleteTask (event){
     if (tasksList.children.length === 1 ){
     emptyList.classList.remove('none')
     };
+}
+
+function doneTask( event){
+    if(event.target.dataset.done === "done"){
+        const parenNod = event.target.closet
+    }
 }
