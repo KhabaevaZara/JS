@@ -59,5 +59,8 @@ function deleteTask (event){
         // Удаление задчи 
         parenNode.remove()
     }
-
+    //Если в списке задач однин элемент то показываем надпись "Список дел пуст"
+    if (tasksList.children.length === 1 ){
+    emptyList.classList.add('')
+    };
 }
