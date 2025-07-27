@@ -2,6 +2,7 @@
 const form = document.querySelector('#form');
 const taskInput = document.querySelector('#taskInput');
 const tasksList = document.querySelector('#tasksList');
+const emptyList = document.querySelector('#emptyList');
 
 form.addEventListener('submit', function (event) {
 
@@ -9,7 +10,8 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();  
     
     //Достаем текст задачт из поля ввода
-    const taskText = taskInput.value; 
+    const taskText = taskInput.value;
+   
    
 
     //Формируем разметку для новой задачи 
@@ -28,5 +30,15 @@ form.addEventListener('submit', function (event) {
     `;
   
     //добавляем задачу на страницу
+    tasksList.insertAdjacentHTML('beforeend', taskHTML);
 
+    //Очищаем поле ввода и возвращаем на него фокус
+    //Очистили 
+    taskInput.value = ""
+    //возвращаем на него фокус
+    taskInput.focus()
+
+    if (tasksList.children.Length > 1 ){
+        emptyList.classList.add('none')
+    }
 })
