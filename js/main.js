@@ -78,7 +78,10 @@ function deleteTask (event){
 function doneTask( event){
     if(event.target.dataset.action === "done") {
         //находим родительскую ноду 
-        const parentNode = event.target.closest('.list-group-item')
-        console.log(parentNode);
+        const parentNode = event.target.closest('.list-group-item');
+        //Находим тег <span> по его классу 
+        const taskTitle = parentNode.querySelector('.task-title');
+        //Отчемчаем задачу выполненной или не выполненой 
+        taskTitle.classList.add('task-title--done')
     }
 }
