@@ -49,3 +49,12 @@ if (tasksList.children.length > 1 ){
 
 }
 
+function deleteTask (event){
+  
+    //Проверяем что клик был по кнопку удалить 
+    if (event.target.dataset.action === 'delete'){
+        const parenNode = event.target.closest('.list-group-item');
+        // Удаление задчи 
+        parenNode.remove()
+    }
+}
