@@ -61,6 +61,6 @@ function deleteTask (event){
     }
     //Если в списке задач однин элемент то показываем надпись "Список дел пуст"
     if (tasksList.children.length === 1 ){
-    emptyList.classList.add('')
+    emptyList.classList.remove('none')
     };
 }
