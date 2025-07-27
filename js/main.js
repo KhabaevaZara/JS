@@ -76,8 +76,9 @@ function deleteTask (event){
 }
 
 function doneTask( event){
-    if(event.target.dataset.done === "done"){
+    if(event.target.dataset.action === "done") {
         //находим родительскую ноду 
-        const parentNode = event.target.closet('list-group-item')
+        const parentNode = event.target.closest('.list-group-item')
+        console.log(parentNode);
     }
 }
